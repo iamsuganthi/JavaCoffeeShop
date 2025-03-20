@@ -74,8 +74,44 @@ public class ProductController {
         }
         response.setContentType("text/html");
         var writer = response.getWriter();
+        buildProductPage2(param, prod.getDescription(), prod.getProductType(), prod.getPrice(), writer);
         buildProductPage(param, prod.getDescription(), prod.getProductType(), prod.getPrice(), writer);
         writer.flush();
+    }
+    
+    private void buildProductPage2(String productName, String desc, ProductType productType, Double price, PrintWriter writer) throws IOException {
+        String head = "<html>\n" +
+                "  <head lang=\"en\">\n" +
+                "    <title>CoffeeShop</title>\n" +
+                "     \n" +
+                "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n" +
+                "    <link href=\"/webjars/bootstrap/3.3.4/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\" />\n" +
+                "    <link href=\"/css/style.css\" rel=\"stylesheet\" media=\"screen\" />\n" +
+                "    <script src=\"/webjars/jquery/2.1.4/jquery.js\"></script>\n" +
+                "    <script src=\"/webjars/bootstrap/3.3.4/js/bootstrap.js\"></script>\n" +
+                "   \n" +
+                "  </head>\n" +
+                "  <body><div class=\"container\"><div class=\"panel panel-default\">";
+
+        String foot = "  </div></div></body>\n" +
+                "</html>";
+
+        writer.write(head);
+
+        writer.write("<div class=\"panel-heading\"><h1>" + productName + "</h1></div>");
+
+        String output = "<div class=\"panel-body\">" +
+                "<ul>" +
+                "<li>%s</li>" +
+                "<li>%s</li>" +
+                "<li>%s</li>" +
+                "</ul>" +
+                "</div>";
+
+        writer.write(String.format(output, desc, productType, price));
+        writer.write(foot);
+
+
     }
 
     private void buildProductPage(String productName, String desc, ProductType productType, Double price, PrintWriter writer) throws IOException {
