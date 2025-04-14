@@ -11,3 +11,5 @@ Please do not use this application and workshop in any other way than intended o
 ---
 
 Latest version of the [Workshop](/workshop/WORKSHOP.md)
+
+====
