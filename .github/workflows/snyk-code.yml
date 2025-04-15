@@ -1,10 +1,6 @@
 name: Snyk Code Scan
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: ["push"]
 
 jobs:
   snyk-code-scan:
