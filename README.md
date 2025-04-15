@@ -14,4 +14,4 @@ Latest version of the [Workshop](/workshop/WORKSHOP.md)
 
 =========
 
-Edit in test branch
+Edit this test branch
